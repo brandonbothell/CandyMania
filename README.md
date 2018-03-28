@@ -1,5 +1,5 @@
 # CandyMania
-is a small project created by me, Jason, to hopefully become a better coder. It is a Minecraft server plugin that has multiple kinds of candy, that all have different effects. These can be used for PvP, among other things.
+is a small project created by me, Jason, to hopefully become a better coder. It is a Minecraft server plugin that has multiple kinds of candy, that all have different effects. These can be used for PvP, amongst other things.
 
 # Issues or Suggestions
 are stored here: https://github.com/jasonhaxstuff/CandyMania/issues.
