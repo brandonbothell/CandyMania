@@ -80,16 +80,16 @@ public class Main extends JavaPlugin implements Listener {
 		for (int i = 0; i < candies.size(); i++) {
 			if (event.getPlayer().getInventory().contains(candies.get(i).getItem())) {
 				int quantity = 0;
-		        for(int j = 0; j < inv.length; j++) {
-		            if (inv[j] != null){
-		                if (inv[j].getType().equals(candies.get(i).getItem())) {
-		                    int amount = inv[j].getAmount();
-		                    quantity += amount;
-		                }
-		            }
-		        }
-		        player.getInventory().remove(candies.get(i).getItem());
-		        player.getInventory().addItem(candies.get(i).giveItem(quantity));
+		        	for(int j = 0; j < inv.length; j++) {
+		            		if (inv[j] != null){
+		                		if (inv[j].getType().equals(candies.get(i).getItem())) {
+		                    			int amount = inv[j].getAmount();
+		                    			quantity += amount;
+		                		}
+		            		}
+		        	}
+		        	player.getInventory().remove(candies.get(i).getItem());
+		        	player.getInventory().addItem(candies.get(i).giveItem(quantity));
 			}
 		}
 	}
@@ -102,16 +102,16 @@ public class Main extends JavaPlugin implements Listener {
 		for (int i = 0; i < candies.size(); i++) {
 			if (event.getInventory().contains(candies.get(i).getItem())) {
 				int quantity = 0;
-		        for(int j = 0; j < inv.length; j++) {
-		            if (inv[j] != null){
-		                if (inv[j].getType().equals(candies.get(i).getItem())) {
-		                    int amount = inv[j].getAmount();
-		                    quantity += amount;
-		                }
-		            }
-		        }
-		        event.getInventory().remove(candies.get(i).getItem());
-		        event.getInventory().addItem(candies.get(i).giveItem(quantity));
+		        	for(int j = 0; j < inv.length; j++) {
+		            		if (inv[j] != null){
+		                		if (inv[j].getType().equals(candies.get(i).getItem())) {
+		                    			int amount = inv[j].getAmount();
+		                    			quantity += amount;
+		                		}
+		            		}
+		        	}
+		        	event.getInventory().remove(candies.get(i).getItem());
+		        	event.getInventory().addItem(candies.get(i).giveItem(quantity));
 			}
 		}
 	}
