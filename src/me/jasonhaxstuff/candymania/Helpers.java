@@ -12,6 +12,7 @@ public class Helpers {
 	Commands commands = new Commands();
 
 	public void initCmds() {
+		
 		Bukkit.getPluginCommand("bliss").setExecutor(commands);
 		Bukkit.getPluginCommand("chocolate").setExecutor(commands);
 		Bukkit.getPluginCommand("funbar").setExecutor(commands);
@@ -19,6 +20,7 @@ public class Helpers {
 	}
 	
 	public void initCandies() {
+		
 		Main.candies.add(new Bliss());
 		Main.candies.add(new Chocolate());
 		Main.candies.add(new FunBar());

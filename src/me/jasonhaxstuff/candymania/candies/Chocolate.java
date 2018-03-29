@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.bukkit.GameMode;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -48,8 +49,8 @@ public class Chocolate implements Candy {
 	    lore.add(ChatColor.WHITE + "over a block to eat some Chocolate!");
 	    meta.setLore(lore);
 	    meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+	    meta.addEnchant(Enchantment.DURABILITY, 1, true);
 	    item.setItemMeta(meta);
 	    return item;
 	}
-
 }
