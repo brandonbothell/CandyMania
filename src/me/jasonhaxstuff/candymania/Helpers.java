@@ -26,4 +26,11 @@ public class Helpers {
 		Main.candies.add(new FunBar());
 		Main.candies.add(new Tylenol());
 	}
+	
+	public void initRecipes() {
+		
+		for (int i = 0; i < Main.candies.size(); i++) {
+			Bukkit.addRecipe(Main.candies.get(i).getRecipe());
+		}
+	}
 }

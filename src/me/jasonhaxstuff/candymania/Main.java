@@ -2,23 +2,13 @@ package me.jasonhaxstuff.candymania;
 
 import java.util.ArrayList;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
-//import org.bukkit.entity.EntityType;
-//import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-//import org.bukkit.event.entity.EntityPickupItemEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.EquipmentSlot;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.jasonhaxstuff.candymania.candies.Candy;
@@ -35,26 +25,7 @@ public class Main extends JavaPlugin implements Listener {
 		
 		helpers.initCmds();
 		helpers.initCandies();
-		
-		ShapelessRecipe bliss = new ShapelessRecipe(new NamespacedKey(this, "BlissRecipe"), Main.candies.get(0).giveItem(1));
-		bliss.addIngredient(1, Material.WHEAT);
-		bliss.addIngredient(1, Material.SUGAR);
-		Bukkit.addRecipe(bliss);
-		
-		ShapelessRecipe chocolate = new ShapelessRecipe(new NamespacedKey(this, "ChocolateRecipe"), Main.candies.get(1).giveItem(1));
-		chocolate.addIngredient(3, Material.SUGAR);
-		Bukkit.addRecipe(chocolate);
-		
-		ShapelessRecipe funbar = new ShapelessRecipe(new NamespacedKey(this, "FunBarRecipe"), Main.candies.get(2).giveItem(1));
-		funbar.addIngredient(3, Material.SUGAR);
-		funbar.addIngredient(1, Material.CAKE);
-		Bukkit.addRecipe(funbar);
-		
-		ShapelessRecipe tylenol = new ShapelessRecipe(new NamespacedKey(this, "TylenolRecipe"), Main.candies.get(3).giveItem(1));
-		tylenol.addIngredient(3, Material.PAPER);
-		tylenol.addIngredient(1, Material.SUGAR);
-		Bukkit.addRecipe(tylenol);
-		
+		helpers.initRecipes();
 		getServer().getConsoleSender().sendMessage("[CandyMania] " + ChatColor.GREEN + "CandyMania enabled!");
 		getServer().getPluginManager().registerEvents(new Commands(), this);
 		getServer().getPluginManager().registerEvents(this, this);
@@ -82,68 +53,5 @@ public class Main extends JavaPlugin implements Listener {
 			
 		}
 		
-	}
-	/*
-	@EventHandler
-	public void onEntityPickupItem(EntityPickupItemEvent event) {
-		
-		LivingEntity entity = event.getEntity();
-		
-		if (entity.getType() == EntityType.PLAYER) {
-			Player player = (Player) entity;
-			for (int i = 0; i < candies.size(); i++) {
-				if (event.getItem().getItemStack().getType() == candies.get(i).getItem()) {
-					event.setCancelled(true);
-					player.getInventory().addItem(candies.get(i).giveItem(event.getItem().getItemStack().getAmount()));
-					event.getItem().remove();
-					player.updateInventory();
-				}
-			}
-		}
-	}
-	 */
-	@EventHandler
-	public void onJoin(PlayerJoinEvent event) {
-		
-		Player player = event.getPlayer();
-		ItemStack[] inv = player.getInventory().getContents();
-		
-		for (int i = 0; i < candies.size(); i++) {
-			if (event.getPlayer().getInventory().contains(candies.get(i).getItem())) {
-				int quantity = 0;
-		        for(int j = 0; j < inv.length; j++) {
-		            if (inv[j] != null){
-		                if (inv[j].getType().equals(candies.get(i).getItem())) {
-		                    int amount = inv[j].getAmount();
-		                    quantity += amount;
-		                }
-		            }
-		        }
-		        player.getInventory().remove(candies.get(i).getItem());
-		        player.getInventory().addItem(candies.get(i).giveItem(quantity));
-			}
-		}
-	}
-
-	@EventHandler
-	public void onInventoryOpen(InventoryOpenEvent event) {
-		
-		ItemStack[] inv = event.getInventory().getContents();
-		
-		for (int i = 0; i < candies.size(); i++) {
-			if (event.getInventory().contains(candies.get(i).getItem())) {
-				int quantity = 0;
-		        for(int j = 0; j < inv.length; j++) {
-		            if (inv[j] != null){
-		                if (inv[j].getType().equals(candies.get(i).getItem())) {
-		                    int amount = inv[j].getAmount();
-		                    quantity += amount;
-		                }
-		            }
-		        }
-		        event.getInventory().remove(candies.get(i).getItem());
-		        event.getInventory().addItem(candies.get(i).giveItem(quantity));
-			}
-		}
 	}
 }

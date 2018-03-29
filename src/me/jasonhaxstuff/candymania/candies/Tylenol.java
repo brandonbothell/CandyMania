@@ -8,6 +8,8 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.Recipe;
+import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffectType;
 import net.md_5.bungee.api.ChatColor;
@@ -51,5 +53,15 @@ public class Tylenol implements Candy {
 	    meta.addEnchant(Enchantment.DURABILITY, 1, true);
 	    item.setItemMeta(meta);
 	    return item;
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Override
+	public Recipe getRecipe() {
+
+		ShapelessRecipe recipe = new ShapelessRecipe(this.giveItem(1));
+		recipe.addIngredient(3, Material.PAPER);
+		recipe.addIngredient(1, Material.SUGAR);
+		return recipe;
 	}
 }
