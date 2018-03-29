@@ -2,14 +2,17 @@ package me.jasonhaxstuff.candymania;
 
 import java.util.ArrayList;
 
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -44,9 +47,9 @@ public class Main extends JavaPlugin implements Listener {
 		
 		Player player = event.getPlayer();
 		
-		if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+		if (event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getHand() == EquipmentSlot.HAND) {
 			for (int i = 0; i < candies.size(); i++) {
-				if (player.getInventory().getItemInHand().getType() == candies.get(i).getItem()) {
+				if (player.getInventory().getItemInMainHand().getType() == candies.get(i).getItem()) {
 					event.setCancelled(true);
 					candies.get(i).use(player);
 				}
@@ -57,16 +60,20 @@ public class Main extends JavaPlugin implements Listener {
 	}
 	
 	@EventHandler
-	public void onPlayerPickupItem(PlayerPickupItemEvent event) {
+	public void onEntityPickupItem(EntityPickupItemEvent event) {
 		
-		Player player = event.getPlayer();
+		LivingEntity entity = event.getEntity();
 		
-		for (int i = 0; i < candies.size(); i++) {
-			if (event.getItem().getItemStack().getType() == candies.get(i).getItem()) {
-				event.setCancelled(true);
-				player.getInventory().addItem(candies.get(i).giveItem(event.getItem().getItemStack().getAmount()));
-				event.getItem().remove();
-				player.updateInventory();
+		if (entity.getType() == EntityType.PLAYER) {
+			
+			Player player = (Player) entity;
+			for (int i = 0; i < candies.size(); i++) {
+				if (event.getItem().getItemStack().getType() == candies.get(i).getItem()) {
+					event.setCancelled(true);
+					player.getInventory().addItem(candies.get(i).giveItem(event.getItem().getItemStack().getAmount()));
+					event.getItem().remove();
+					player.updateInventory();
+				}
 			}
 		}
 	}
@@ -80,16 +87,16 @@ public class Main extends JavaPlugin implements Listener {
 		for (int i = 0; i < candies.size(); i++) {
 			if (event.getPlayer().getInventory().contains(candies.get(i).getItem())) {
 				int quantity = 0;
-		        	for(int j = 0; j < inv.length; j++) {
-		            		if (inv[j] != null){
-		                		if (inv[j].getType().equals(candies.get(i).getItem())) {
-		                    			int amount = inv[j].getAmount();
-		                    			quantity += amount;
-		                		}
-		            		}
-		        	}
-		        	player.getInventory().remove(candies.get(i).getItem());
-		        	player.getInventory().addItem(candies.get(i).giveItem(quantity));
+		        for(int j = 0; j < inv.length; j++) {
+		            if (inv[j] != null){
+		                if (inv[j].getType().equals(candies.get(i).getItem())) {
+		                    int amount = inv[j].getAmount();
+		                    quantity += amount;
+		                }
+		            }
+		        }
+		        player.getInventory().remove(candies.get(i).getItem());
+		        player.getInventory().addItem(candies.get(i).giveItem(quantity));
 			}
 		}
 	}
@@ -102,16 +109,16 @@ public class Main extends JavaPlugin implements Listener {
 		for (int i = 0; i < candies.size(); i++) {
 			if (event.getInventory().contains(candies.get(i).getItem())) {
 				int quantity = 0;
-		        	for(int j = 0; j < inv.length; j++) {
-		            		if (inv[j] != null){
-		                		if (inv[j].getType().equals(candies.get(i).getItem())) {
-		                    			int amount = inv[j].getAmount();
-		                    			quantity += amount;
-		                		}
-		            		}
-		        	}
-		        	event.getInventory().remove(candies.get(i).getItem());
-		        	event.getInventory().addItem(candies.get(i).giveItem(quantity));
+		        for(int j = 0; j < inv.length; j++) {
+		            if (inv[j] != null){
+		                if (inv[j].getType().equals(candies.get(i).getItem())) {
+		                    int amount = inv[j].getAmount();
+		                    quantity += amount;
+		                }
+		            }
+		        }
+		        event.getInventory().remove(candies.get(i).getItem());
+		        event.getInventory().addItem(candies.get(i).giveItem(quantity));
 			}
 		}
 	}

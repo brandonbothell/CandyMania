@@ -17,10 +17,10 @@ public class Bliss implements Candy {
 
 	@Override
 	public void use(Player player) {
-		if(player.getInventory().getItemInHand().getAmount() != 1 && player.getGameMode() != GameMode.CREATIVE) {
-			player.getInventory().getItemInHand().setAmount(player.getInventory().getItemInHand().getAmount() - 1);
+		if(player.getInventory().getItemInMainHand().getAmount() != 1 && player.getGameMode() != GameMode.CREATIVE) {
+			player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount() - 1);
 		} else if (player.getGameMode() != GameMode.CREATIVE) {
-			player.getInventory().setItemInHand(null);
+			player.getInventory().setItemInMainHand(null);
 		}
 		player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 500, 3));
 		player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 500, 2));
