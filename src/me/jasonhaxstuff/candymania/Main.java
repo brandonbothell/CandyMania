@@ -65,7 +65,6 @@ public class Main extends JavaPlugin implements Listener {
 		LivingEntity entity = event.getEntity();
 		
 		if (entity.getType() == EntityType.PLAYER) {
-			
 			Player player = (Player) entity;
 			for (int i = 0; i < candies.size(); i++) {
 				if (event.getItem().getItemStack().getType() == candies.get(i).getItem()) {
