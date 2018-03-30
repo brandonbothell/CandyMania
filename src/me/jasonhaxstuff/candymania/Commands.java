@@ -7,6 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
 
+import me.jasonhaxstuff.candymania.commands.EnderPop;
 import me.jasonhaxstuff.candymania.commands.Bliss;
 import me.jasonhaxstuff.candymania.commands.Chocolate;
 import me.jasonhaxstuff.candymania.commands.CommandType;
@@ -23,6 +24,7 @@ public class Commands implements Listener,CommandExecutor{
 		commands.add(new Chocolate());
 		commands.add(new FunBar());
 		commands.add(new Tylenol());
+		commands.add(new EnderPop());
 		
 		
 		for (int i = 0; i < commands.size(); i++) {

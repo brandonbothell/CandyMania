@@ -5,14 +5,17 @@ main: me.jasonhaxstuff.candymania.Main
 description: Candy in Minecraft
 commands:
     bliss:
-        description: "Gives you Bliss. usage: /bliss  <amount>"
+        description: "Gives you Bliss. Usage: /bliss  <amount>"
         permission: candy.bliss.give
     chocolate:
-        description: "Gives you Chocolate. usage: /chocolate  <amount>"
+        description: "Gives you Chocolate. Usage: /chocolate  <amount>"
         permission: candy.chocolate.give
     funbar:
-        description: "Gives you a FunBar. usage: /funbar  <amount>"
+        description: "Gives you a FunBar. Usage: /funbar  <amount>"
         permission: candy.funbar.give
     tylenol:
-        description: "Gives you Tylenol. usage: /tylenol  <amount>"
+        description: "Gives you Tylenol. Usage: /tylenol  <amount>"
         permission: candy.tylenol.give
+    enderpop:
+        description: "Gives you an EnderPop. Usage: /enderpop  <amount>"
+        permission: candy.enderpop.give
