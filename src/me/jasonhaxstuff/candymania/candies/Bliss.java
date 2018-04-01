@@ -14,10 +14,13 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import me.jasonhaxstuff.candymania.Helpers;
 import net.md_5.bungee.api.ChatColor;
 
 public class Bliss implements Candy {
 
+	Helpers helpers = new Helpers();
+	
 	@Override
 	public void use(Player player) {
 		if(player.getInventory().getItemInMainHand().getAmount() != 1 && player.getGameMode() != GameMode.CREATIVE) {
@@ -50,12 +53,16 @@ public class Bliss implements Candy {
 	    item.setItemMeta(meta);
 	    return item;
 	}
+	
+	public String getName() {
+		
+		return "Bliss";
+	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public Recipe getRecipe() {
 		
-		ShapelessRecipe recipe = new ShapelessRecipe(this.giveItem(1));
+		ShapelessRecipe recipe = new ShapelessRecipe(helpers.getNamespacedKey(this.getName()), this.giveItem(1));
 		recipe.addIngredient(1, Material.WHEAT);
 		recipe.addIngredient(1, Material.SUGAR);
 		return recipe;

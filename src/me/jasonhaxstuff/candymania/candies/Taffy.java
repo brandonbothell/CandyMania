@@ -11,12 +11,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import me.jasonhaxstuff.candymania.Helpers;
 import net.md_5.bungee.api.ChatColor;
 
-public class Tylenol implements Candy {
+public class Taffy implements Candy {
 
 	Helpers helpers = new Helpers();
 	
@@ -28,48 +29,45 @@ public class Tylenol implements Candy {
 		} else if (player.getGameMode() != GameMode.CREATIVE) {
 			player.getInventory().setItemInMainHand(null);
 		}
-		player.removePotionEffect(PotionEffectType.CONFUSION);
-		if (player.getGameMode() != GameMode.CREATIVE) {
-			player.setHealth(player.getHealth() - 5.0);
-		}
-		player.sendMessage(ChatColor.GREEN + "You just took some Tylenol. Hopefully you feel better now.");
-
+		player.sendMessage(ChatColor.YELLOW + "FeelsGoodMan.");
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 1000, 2));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 250, 2));
 	}
 
 	@Override
 	public Material getItem() {
-		return Material.PAPER;
 		
+		return Material.LEATHER;
 	}
 
 	@Override
 	public ItemStack giveItem(int amount) {
 		
-		ItemStack item = new ItemStack(Material.PAPER, amount);
+		ItemStack item = new ItemStack(Material.LEATHER, amount);
 		ItemMeta meta = item.getItemMeta();
 		
-		meta.setDisplayName(ChatColor.DARK_GRAY + "Tylenol");
+		meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Taffy");
 		ArrayList<String> lore = new ArrayList<String>();
 	    lore.add(ChatColor.WHITE + "Right click while hovering");
-	    lore.add(ChatColor.WHITE + "over a block to take Tylenol");
+	    lore.add(ChatColor.WHITE + "over a block to eat some Taffy!");
 	    meta.setLore(lore);
 	    meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 	    meta.addEnchant(Enchantment.DURABILITY, 1, true);
 	    item.setItemMeta(meta);
 	    return item;
 	}
-	
+
 	public String getName() {
 		
-		return "Tylenol";
+		return "Taffy";
 	}
 
 	@Override
 	public Recipe getRecipe() {
 		
 		ShapelessRecipe recipe = new ShapelessRecipe(helpers.getNamespacedKey(this.getName()), this.giveItem(1));
-		recipe.addIngredient(3, Material.PAPER);
-		recipe.addIngredient(1, Material.SUGAR);
+		recipe.addIngredient(3, Material.LEATHER);
 		return recipe;
 	}
+
 }

@@ -19,3 +19,6 @@ commands:
     enderpop:
         description: "Gives you an EnderPop. Usage: /enderpop  <amount>"
         permission: candy.enderpop.give
+    taffy:
+        description: "Gives you an Taffy. Usage: /taffy  <amount>"
+        permission: candy.taffy.give

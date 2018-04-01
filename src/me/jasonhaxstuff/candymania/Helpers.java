@@ -4,12 +4,14 @@ import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 
 import me.jasonhaxstuff.candymania.candies.Bliss;
 import me.jasonhaxstuff.candymania.candies.Chocolate;
 import me.jasonhaxstuff.candymania.candies.EnderPop;
 import me.jasonhaxstuff.candymania.candies.FunBar;
+import me.jasonhaxstuff.candymania.candies.Taffy;
 import me.jasonhaxstuff.candymania.candies.Tylenol;
 
 public class Helpers {
@@ -23,6 +25,7 @@ public class Helpers {
 		Bukkit.getPluginCommand("funbar").setExecutor(commands);
 		Bukkit.getPluginCommand("tylenol").setExecutor(commands);
 		Bukkit.getPluginCommand("enderpop").setExecutor(commands);
+		Bukkit.getPluginCommand("taffy").setExecutor(commands);
 	}
 	
 	public void initCandies() {
@@ -32,6 +35,7 @@ public class Helpers {
 		Main.candies.add(new FunBar());
 		Main.candies.add(new Tylenol());
 		Main.candies.add(new EnderPop());
+		Main.candies.add(new Taffy());
 	}
 	
 	public void initRecipes() {
@@ -51,5 +55,11 @@ public class Helpers {
 		z += rand.nextInt(101) - 50;
 		player.teleport(new Location(player.getWorld(), x, y, z));
 		return player.getLocation();
+	}
+	
+	public NamespacedKey getNamespacedKey(String candy) {
+		
+        String key = Integer.toString(candy.hashCode());
+        return NamespacedKey.minecraft(key);
 	}
 }

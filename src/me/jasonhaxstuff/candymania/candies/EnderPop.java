@@ -56,6 +56,11 @@ public class EnderPop implements Candy {
 	    return item;
 	}
 
+	public String getName() {
+		
+		return "EnderPop";
+	}
+
 	@Override
 	public Recipe getRecipe() {
 		
