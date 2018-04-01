@@ -26,6 +26,7 @@ public class Helpers {
 		Bukkit.getPluginCommand("tylenol").setExecutor(commands);
 		Bukkit.getPluginCommand("enderpop").setExecutor(commands);
 		Bukkit.getPluginCommand("taffy").setExecutor(commands);
+		Bukkit.getPluginCommand("tide pods").setExecutor(commands);
 	}
 	
 	public void initCandies() {
@@ -36,6 +37,7 @@ public class Helpers {
 		Main.candies.add(new Tylenol());
 		Main.candies.add(new EnderPop());
 		Main.candies.add(new Taffy());
+		Main.candies.add(new TidePods());
 	}
 	
 	public void initRecipes() {
