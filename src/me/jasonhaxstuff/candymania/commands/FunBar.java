@@ -18,7 +18,13 @@ public class FunBar implements CommandType {
 				player.sendMessage(ChatColor.RED + "Usage: /funbar <amount>");
 				return false;
 			}
-			int amount = Integer.parseInt(args[0]);
+			int amount = 0;
+			try {
+				amount = Integer.parseInt(args[0]);
+			} catch (NumberFormatException e) {
+				player.sendMessage(ChatColor.RED + "That's not a number!");
+				return false;
+			}
 			if (amount >= 1) {
 				player.getInventory().addItem(Main.candies.get(2).giveItem(amount));
 				return true;
