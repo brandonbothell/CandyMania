@@ -11,6 +11,7 @@ import me.jasonhaxstuff.candymania.candies.Bliss;
 import me.jasonhaxstuff.candymania.candies.Chocolate;
 import me.jasonhaxstuff.candymania.candies.EnderPop;
 import me.jasonhaxstuff.candymania.candies.FunBar;
+import me.jasonhaxstuff.candymania.candies.SkrattarDuForlorarDu;
 import me.jasonhaxstuff.candymania.candies.Taffy;
 import me.jasonhaxstuff.candymania.candies.Tylenol;
 
@@ -26,6 +27,7 @@ public class Helpers {
 		Bukkit.getPluginCommand("tylenol").setExecutor(commands);
 		Bukkit.getPluginCommand("enderpop").setExecutor(commands);
 		Bukkit.getPluginCommand("taffy").setExecutor(commands);
+		Bukkit.getPluginCommand("skrattar").setExecutor(commands);
 	}
 	
 	public void initCandies() {
@@ -36,6 +38,7 @@ public class Helpers {
 		Main.candies.add(new Tylenol());
 		Main.candies.add(new EnderPop());
 		Main.candies.add(new Taffy());
+		Main.candies.add(new SkrattarDuForlorarDu());
 	}
 	
 	public void initRecipes() {
@@ -59,7 +62,7 @@ public class Helpers {
 	
 	public NamespacedKey getNamespacedKey(String candy) {
 		
-        String key = Integer.toString(candy.hashCode());
+		String key = Integer.toString(candy.hashCode());
         return NamespacedKey.minecraft(key);
 	}
 }

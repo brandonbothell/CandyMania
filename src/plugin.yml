@@ -22,3 +22,6 @@ commands:
     taffy:
         description: "Gives you an Taffy. Usage: /taffy  <amount>"
         permission: candy.taffy.give
+    skrattar:
+        description: "Gives you a Skrattar. Usage: /skrattar <amount>"
+        permission: candy.skrattar.give
