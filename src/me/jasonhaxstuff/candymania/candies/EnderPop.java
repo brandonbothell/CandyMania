@@ -27,7 +27,7 @@ public class EnderPop implements Candy {
 		} else if (player.getGameMode() != GameMode.CREATIVE) {
 			player.getInventory().setItemInMainHand(null);
 		}
-		player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 500, 3));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 500, 3, true));
 		helpers.closeRandTp(player);
 		if (player.getGameMode() != GameMode.CREATIVE) {
 			player.setHealth(player.getHealth() - 5.0);

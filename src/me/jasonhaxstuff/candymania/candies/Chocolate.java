@@ -29,10 +29,10 @@ public class Chocolate implements Candy {
 		} else if (player.getGameMode() != GameMode.CREATIVE) {
 			player.getInventory().setItemInMainHand(null);
 		}
-		player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 1000, 2));
-		player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1000, 3));
-		player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 1000, 20));
-		player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 10, 2));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 1000, 2, true));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1000, 3, true));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 1000, 20, true));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 10, 2, true));
 		player.sendMessage(ChatColor.BLACK + "Ooohhhh the chocolate. Feels right man.");
 
 	}

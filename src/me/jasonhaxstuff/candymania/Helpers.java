@@ -11,6 +11,7 @@ import me.jasonhaxstuff.candymania.candies.Bliss;
 import me.jasonhaxstuff.candymania.candies.Chocolate;
 import me.jasonhaxstuff.candymania.candies.EnderPop;
 import me.jasonhaxstuff.candymania.candies.FunBar;
+import me.jasonhaxstuff.candymania.candies.Prix;
 import me.jasonhaxstuff.candymania.candies.SkrattarDuForlorarDu;
 import me.jasonhaxstuff.candymania.candies.Taffy;
 import me.jasonhaxstuff.candymania.candies.Tylenol;
@@ -28,6 +29,7 @@ public class Helpers {
 		Bukkit.getPluginCommand("enderpop").setExecutor(commands);
 		Bukkit.getPluginCommand("taffy").setExecutor(commands);
 		Bukkit.getPluginCommand("skrattar").setExecutor(commands);
+		Bukkit.getPluginCommand("prix").setExecutor(commands);
 	}
 	
 	public void initCandies() {
@@ -39,6 +41,7 @@ public class Helpers {
 		Main.candies.add(new EnderPop());
 		Main.candies.add(new Taffy());
 		Main.candies.add(new SkrattarDuForlorarDu());
+		Main.candies.add(new Prix());
 	}
 	
 	public void initRecipes() {
@@ -58,6 +61,17 @@ public class Helpers {
 		z += rand.nextInt(101) - 50;
 		player.teleport(new Location(player.getWorld(), x, y, z));
 		return player.getLocation();
+	}
+	
+	public void addPrixxed(Player player) {
+		Main.prixxed.add(player);
+		System.out.println("Added to prixxed");
+		Bukkit.getScheduler().runTaskLaterAsynchronously(Main.getInstance(), new Runnable() {
+			public void run() {
+				Main.prixxed.remove(player);
+				System.out.println("Removed from prixxed");
+			}
+		}, 250L);
 	}
 	
 	public NamespacedKey getNamespacedKey(String candy) {

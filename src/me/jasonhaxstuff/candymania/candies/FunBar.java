@@ -30,8 +30,8 @@ public class FunBar implements Candy {
 			player.getInventory().setItemInMainHand(null);
 		}
 		player.sendMessage(ChatColor.RED + "Wow, this is trippy. Shoulda read the nutrition facts.");
-		player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 1000, 2), true);
-		player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 1000, 5), true);
+		player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 1000, 2, true));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 1000, 5, true));
 		player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 500, 2));
 	}
 	

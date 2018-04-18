@@ -30,8 +30,8 @@ public class Taffy implements Candy {
 			player.getInventory().setItemInMainHand(null);
 		}
 		player.sendMessage(ChatColor.YELLOW + "FeelsGoodMan.");
-		player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 1000, 2));
-		player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 250, 2));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 1000, 2, true));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 250, 2, true));
 	}
 
 	@Override

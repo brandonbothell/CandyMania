@@ -17,7 +17,7 @@ import org.bukkit.potion.PotionEffectType;
 import me.jasonhaxstuff.candymania.Helpers;
 import net.md_5.bungee.api.ChatColor;
 
-public class Bliss implements Candy {
+public class Prix implements Candy {
 
 	Helpers helpers = new Helpers();
 	
@@ -28,25 +28,25 @@ public class Bliss implements Candy {
 		} else if (player.getGameMode() != GameMode.CREATIVE) {
 			player.getInventory().setItemInMainHand(null);
 		}
+		helpers.addPrixxed(player);
 		player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 500, 3, true));
-		player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 500, 2, true));
-		player.sendMessage(ChatColor.DARK_PURPLE + "You just ate some Bliss... Feelin Oozy?");
+		player.sendMessage(ChatColor.DARK_PURPLE + "You just ate some Prix. Try hitting.");
 
 	}
 	
 	public Material getItem() {
-		return Material.WHEAT;
+		return Material.ARROW;
 		
 	}
 	
 	public ItemStack giveItem(int amount) {
-	    ItemStack item = new ItemStack(Material.WHEAT, amount);
+	    ItemStack item = new ItemStack(Material.ARROW, amount);
 	    ItemMeta meta = item.getItemMeta();
 	    
-	    meta.setDisplayName(ChatColor.GREEN + "Bliss");
+	    meta.setDisplayName(ChatColor.YELLOW + "Prix");
 	    ArrayList<String> lore = new ArrayList<String>();
 	    lore.add(ChatColor.WHITE + "Right click while hovering");
-	    lore.add(ChatColor.WHITE + "over a block to eat Bliss!");
+	    lore.add(ChatColor.WHITE + "over a block to eat Prix!");
 	    meta.setLore(lore);
 	    meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 	    meta.addEnchant(Enchantment.DURABILITY, 1, true);
@@ -56,15 +56,15 @@ public class Bliss implements Candy {
 	
 	public String getName() {
 		
-		return "Bliss";
+		return "Prix";
 	}
 
 	@Override
 	public Recipe getRecipe() {
 		
 		ShapelessRecipe recipe = new ShapelessRecipe(helpers.getNamespacedKey(this.getName()), this.giveItem(1));
-		recipe.addIngredient(1, Material.WHEAT);
-		recipe.addIngredient(1, Material.SUGAR);
+		recipe.addIngredient(8, Material.ARROW);
+		recipe.addIngredient(1, Material.IRON_INGOT);
 		return recipe;
 	}
 }

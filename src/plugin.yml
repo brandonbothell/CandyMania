@@ -25,3 +25,6 @@ commands:
     skrattar:
         description: "Gives you a Skrattar. Usage: /skrattar <amount>"
         permission: candy.skrattar.give
+    prix:
+        description: "Gives you Prix. Usage: /prix <amount>"
+        permission: candy.prix.give

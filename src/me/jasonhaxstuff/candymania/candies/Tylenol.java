@@ -30,7 +30,7 @@ public class Tylenol implements Candy {
 		}
 		player.removePotionEffect(PotionEffectType.CONFUSION);
 		if (player.getGameMode() != GameMode.CREATIVE) {
-			player.setHealth(player.getHealth() - 5.0);
+			player.setHealth(player.getHealth() - 3.0F);
 		}
 		player.sendMessage(ChatColor.GREEN + "You just took some Tylenol. Hopefully you feel better now.");
 
