@@ -65,13 +65,11 @@ public class Helpers {
 	
 	public void addPrixxed(Player player) {
 		Main.prixxed.add(player);
-		System.out.println("Added to prixxed");
 		Bukkit.getScheduler().runTaskLaterAsynchronously(Main.getInstance(), new Runnable() {
 			public void run() {
 				Main.prixxed.remove(player);
-				System.out.println("Removed from prixxed");
 			}
-		}, 250L);
+		}, 200L);
 	}
 	
 	public NamespacedKey getNamespacedKey(String candy) {

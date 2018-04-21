@@ -6,25 +6,25 @@ description: Candy in Minecraft
 commands:
     bliss:
         description: "Gives you Bliss. Usage: /bliss  <amount>"
-        permission: candy.bliss.give
+        permission: candy.give.bliss
     chocolate:
         description: "Gives you Chocolate. Usage: /chocolate  <amount>"
-        permission: candy.chocolate.give
+        permission: candy.give.chocolate
     funbar:
         description: "Gives you a FunBar. Usage: /funbar  <amount>"
-        permission: candy.funbar.give
+        permission: candy.give.funbar
     tylenol:
         description: "Gives you Tylenol. Usage: /tylenol  <amount>"
-        permission: candy.tylenol.give
+        permission: candy.give.tylenol
     enderpop:
         description: "Gives you an EnderPop. Usage: /enderpop  <amount>"
-        permission: candy.enderpop.give
+        permission: candy.give.enderpop
     taffy:
         description: "Gives you an Taffy. Usage: /taffy  <amount>"
-        permission: candy.taffy.give
+        permission: candy.give.taffy
     skrattar:
         description: "Gives you a Skrattar. Usage: /skrattar <amount>"
-        permission: candy.skrattar.give
+        permission: candy.give.skrattar
     prix:
         description: "Gives you Prix. Usage: /prix <amount>"
-        permission: candy.prix.give
+        permission: candy.give.prix
