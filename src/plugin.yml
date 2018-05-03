@@ -1,6 +1,6 @@
 name: CandyMania
 author: JasonHaxStuff
-version: 1.5
+version: 1.5.4
 main: me.jasonhaxstuff.candymania.Main
 description: Candy in Minecraft
 commands:
