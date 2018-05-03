@@ -75,6 +75,6 @@ public class Helpers {
 	public NamespacedKey getNamespacedKey(String candy) {
 		
 		String key = Integer.toString(candy.hashCode());
-        return NamespacedKey.minecraft(key);
+        	return NamespacedKey.minecraft(key);
 	}
 }
