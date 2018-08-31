@@ -1,5 +1,5 @@
-# WARNING: THIS PROJECT IS OUT OF DATE
-Go [here](https://github.com/Progamer2600/CandyMania) to view the maintained version by Progamer2600.
+# WARNING: THIS PROJECT IS OUT OF SERVICE
+This project will most likely never be worked on again.
 
 # CandyMania
 is a small project created by me, Jason, to hopefully become a better coder. It is a Minecraft server plugin that has multiple kinds of candy, that all have different effects. These can be used for PvP, amongst other things.
